@@ -4,7 +4,7 @@ import styles from '../../styles/Home.module.css'
 import HomeIcon from '@material-ui/icons/Home'
 
 export const getStaticProps = async ({ params }) => {
-  const res = await fetch(`http://localhost:8080/api/albums/${params.albumId}`)
+  const res = await fetch(process.env.API_URL + `/api/albums/${params.albumId}`)
   const data = await res.json()
 
   return {
@@ -16,7 +16,7 @@ export const getStaticProps = async ({ params }) => {
 }
 
 export async function getStaticPaths() {
-  const res = await fetch('http://localhost:8080/api/albums/all')
+  const res = await fetch(process.env.API_URL + '/api/albums/all')
   const albums = await res.json()
 
   // Get the paths we want to pre-render based on posts
@@ -39,7 +39,7 @@ const Album = ({ data }) => {
       </Link>
       <div className={styles.container}>
        <div className={styles.grid}>
-         {data.map((image) => <img style={{maxWidth:'20%', maxHeight: '20%'}} src={'http://localhost:8080/photos/' + image.img_url}></img>)}
+         {data.map((image) => <img style={{maxWidth:'20%', maxHeight: '20%'}} src={process.env.API_URL + '/photos/' + image.img_url}></img>)}
        </div>
       </div>
     </>

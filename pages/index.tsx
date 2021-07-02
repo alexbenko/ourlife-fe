@@ -11,7 +11,7 @@ export default function Home() {
   const [ albumsInfo, setAlbumsInfo ] = useState([])
 
   const fetcher = (url : string) => fetch(url).then(r => r.json())
-  const { data, error } = useSWR('http://localhost:8080/api/albums/all', fetcher)
+  const { data, error } = useSWR(process.env.API_URL + '/api/albums/all', fetcher)
   // TODO: When deploying to production, create an environemnt variable in vercel that will store the url for the other server
   if (data) console.log(data)
 
@@ -19,7 +19,6 @@ export default function Home() {
     <div className={styles.container}>
       <Head>
         <title>Our Life</title>
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className={styles.main}>
