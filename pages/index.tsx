@@ -1,6 +1,7 @@
 import { useEffect , useState } from 'react'
 import Head from 'next/head'
 import useSWR from 'swr'
+
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 import styles from '../styles/Home.module.css'
@@ -9,11 +10,8 @@ import AlbumCard from '../components/AlbumCard'
 
 export default function Home() {
   const [ albumsInfo, setAlbumsInfo ] = useState([])
-
   const fetcher = (url : string) => fetch(url).then(r => r.json())
-  const { data, error } = useSWR(process.env.API_URL + '/api/albums/all', fetcher)
-  // TODO: When deploying to production, create an environemnt variable in vercel that will store the url for the other server
-  if (data) console.log(data)
+  const { data, error } = useSWR(process.env.NEXT_PUBLIC_API_URL + '/api/albums/all', fetcher)
 
   return (
     <div className={styles.container}>
