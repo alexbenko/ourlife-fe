@@ -11,7 +11,7 @@ import AlbumCard from '../components/AlbumCard'
 export default function Home() {
   const [ albumsInfo, setAlbumsInfo ] = useState([])
   const fetcher = (url : string) => fetch(url).then(r => r.json())
-  const { data, error } = useSWR(process.env.NEXT_PUBLIC_API_URL + '/api/albums/all', fetcher)
+  const { data, error } = useSWR(process.env.NEXT_PUBLIC_API_URL + 'api/albums/all', fetcher)
 
   return (
     <div className={styles.container}>
