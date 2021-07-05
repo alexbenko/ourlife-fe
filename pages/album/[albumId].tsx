@@ -6,7 +6,7 @@ import HomeIcon from '@material-ui/icons/Home'
 // TODO: create a config that will export either the url of the localhost if in dev or the server url if in production
 // https://stackoverflow.com/questions/64309158/nextjs-env-variable-is-always-undefined
 export const getStaticProps = async ({ params }) => {
-  const res = await fetch(process.env.NEXT_PUBLIC_API_URL + `/api/albums/${params.albumId}`)
+  const res = await fetch(process.env.NEXT_PUBLIC_API_URL + `api/albums/${params.albumId}`)
   const data = await res.json()
 
   return {
@@ -18,7 +18,7 @@ export const getStaticProps = async ({ params }) => {
 }
 
 export async function getStaticPaths() {
-  const res = await fetch(process.env.NEXT_PUBLIC_API_URL + '/api/albums/all')
+  const res = await fetch(process.env.NEXT_PUBLIC_API_URL + 'api/albums/all')
   const albums = await res.json()
 
   // Get the paths we want to pre-render based on posts
