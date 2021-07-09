@@ -8,23 +8,20 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Live URL
 To see this project live, visit : https://ourlife-fe.vercel.app/
+Please keep in mind this is the earlist working version of my project and there are a lot of changes I am going to implement before I consider this complete.
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 This is the code for the website of my photo sharing platform. <a href="https://github.com/alexbenko/ourlife"> Click me to see the backend service that serves the images, provides authentication, and auto renweing ssl certs.</a>
 </br>
 
-This project is a demonstration of my React and Front end speciatly. Throughout this project I use async/await syntax, React hooks, custom components, conditonal rendering, dynamic CSS, 
-## Getting Started
+This project is a demonstration of my React and Front end speciatly. Currently in this project I use async/await syntax, React hooks, custom components, conditonal rendering, fetch API calls to my server, loading static content from my server , and dynamic CSS.
 
-First, run the development server:
+I will most likely extend this to being my portfolio site as well, but for now I am focusing on the photo sharing platform..
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+There are many features I want to implement:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+<ol>
+  <li>Authentication Portal</li>
+  <li>Allowing Authenticated users to edit, delete, and add new content to the photo sharing portion. (Users will only be me and my partner.)</li>
+</ol>
