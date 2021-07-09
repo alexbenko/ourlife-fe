@@ -6,10 +6,15 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 * [Reactjs](https://reactjs.org/docs/getting-started.html)
 * [Typescript](https://www.typescriptlang.org/docs/)
 
+## Live URL
+To see this project live, visit : https://ourlife-fe.vercel.app/
+
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 This is the code for the website of my photo sharing platform. <a href="https://github.com/alexbenko/ourlife"> Click me to see the backend service that serves the images, provides authentication, and auto renweing ssl certs.</a>
+</br>
 
+This project is a demonstration of my React and Front end speciatly. Throughout this project I use async/await syntax, React hooks, custom components, conditonal rendering, dynamic CSS, 
 ## Getting Started
 
 First, run the development server:
