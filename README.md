@@ -1,5 +1,15 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+### Built With
+
+* [Nexts](https://nextjs.org/docs)
+* [Reactjs](https://reactjs.org/docs/getting-started.html)
+* [Typescript](https://www.typescriptlang.org/docs/)
+
+<!-- ABOUT THE PROJECT -->
+## About The Project
+This is the code for the website of my photo sharing platform. <a href="https://github.com/alexbenko/ourlife"> Click me to see the backend service that serves the images, provides authentication, and auto renweing ssl certs.</a>
+
 ## Getting Started
 
 First, run the development server:
