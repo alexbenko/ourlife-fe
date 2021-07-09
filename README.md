@@ -1,5 +1,3 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
 ### Built With
 
 * [Nexts](https://nextjs.org/docs)
@@ -24,4 +22,5 @@ There are many features I want to implement:
 <ol>
   <li>Authentication Portal</li>
   <li>Allowing Authenticated users to edit, delete, and add new content to the photo sharing portion. (Users will only be me and my partner.)</li>
+  <li>View a Single Image</li>
 </ol>
