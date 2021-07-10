@@ -1,6 +1,8 @@
-import '../styles/globals.css'
 import Head from 'next/head'
+import '../styles/globals.css'
 import url from '../config/url'
+
+import Footer from '../components/Footer'
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -10,6 +12,7 @@ function MyApp({ Component, pageProps }) {
         <link rel="icon" href="/favicon.svg" />
       </Head>
       <Component {...pageProps} API_URL={url()}/>
+      <Footer />
     </>
   )
 }
