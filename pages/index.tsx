@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import useSWR from 'swr'
 
 import CircularProgress from '@material-ui/core/CircularProgress';
@@ -11,9 +10,6 @@ export default function Home({ API_URL }) {
 
   return (
     <div className={styles.container}>
-      <Head>
-        <title>My Life</title>
-      </Head>
 
       <main className={styles.main}>
         <h1 className={styles.title}>
