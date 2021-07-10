@@ -6,22 +6,20 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 
 import styles from '../styles/Home.module.css'
 import AlbumCard from '../components/AlbumCard'
-
-
-export default function Home() {
+export default function Home({ API_URL }) {
   const [ albumsInfo, setAlbumsInfo ] = useState([])
   const fetcher = (url : string) => fetch(url).then(r => r.json())
-  const { data, error } = useSWR(process.env.NEXT_PUBLIC_API_URL + 'api/albums/all', fetcher)
+  const { data, error } = useSWR(API_URL + 'api/albums/all', fetcher)
 
   return (
     <div className={styles.container}>
       <Head>
-        <title>Our Life</title>
+        <title>My Life</title>
       </Head>
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to Our Life
+          Welcome to My Life
         </h1>
 
         <p className={styles.description}>
@@ -50,10 +48,3 @@ export default function Home() {
     </div>
   )
 }
-
-/*
-export const getServerSideProps: GetServerSideProps = async (context) => {
-    const res = await fetch('http://localhost:8080/api/albums/all') // TODO : When deplying to production changes this to an environment variable for image microservice server
-    const data = await res.json()
-}
-*/
