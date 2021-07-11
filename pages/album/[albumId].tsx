@@ -1,15 +1,16 @@
-import { InferGetStaticPropsType } from 'next'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import styles from '../../styles/Home.module.css'
 import HomeIcon from '@material-ui/icons/Home'
 import url from '../../config/url'
+import styles from '../../styles/Home.module.css'
 
-const API_URL = url()
+import PhotoGallery from '../../components/PhotoGallery'
 
 export const getStaticProps = async ({ params }) => {
+  const API_URL = url()
   const res = await fetch(API_URL + `api/albums/${params.albumId}`)
   const data = await res.json()
-
+  // TODO: Add a join on the backend so it will pull the album info as well as all the image paths for that
   return {
     props: {
       data,
@@ -19,6 +20,7 @@ export const getStaticProps = async ({ params }) => {
 }
 
 export async function getStaticPaths() {
+  const API_URL = url()
   const res = await fetch(API_URL + 'api/albums/all')
   const albums = await res.json()
 
@@ -34,15 +36,33 @@ export async function getStaticPaths() {
 }
 
 
-const Album = ({ data }) => {
+const Album = ({ data, API_URL }) => {
+  const formatData = (imageData : [{}]) =>{
+    let formatted = []
+    while(imageData.length > 0) {
+      let chunk = imageData.splice(0,4)
+      formatted.push(chunk)
+    }
+
+    return formatted
+  }
+
+  const [formattedData, setFormattedData] = useState([])
+
+  useEffect(()=>{
+    setFormattedData(formatData(data))
+  },[])
   return(
     <>
       <Link href='/'>
         <a> <HomeIcon /> </a>
       </Link>
-       <div className={styles.grid}>
-         {data.map((image) => <img style={{maxWidth:'20%', maxHeight: '20%'}} src={API_URL + 'photos' + image.img_url}></img>)}
-       </div>
+      <div className={styles.container}>
+
+        <h3>Hello</h3>
+
+        {formattedData.length ? <PhotoGallery columns={formattedData} API_URL={API_URL}/> : null}
+      </div>
     </>
   )
 }
