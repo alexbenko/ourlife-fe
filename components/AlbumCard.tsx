@@ -6,7 +6,7 @@ export default function AlbumCard({ albumName, id }) {
       <a>
         <div className={styles.card}>
           <h3> {albumName} &rarr;</h3>
-      </div>
+        </div>
       </a>
     </Link>
   )
