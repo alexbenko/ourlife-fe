@@ -55,7 +55,7 @@ const Album = ({ data, API_URL }) => {
         <a> <HomeIcon /> </a>
       </Link>
       <div className={styles.container}>
-        {data.length ? <PhotoGallery columns={data} API_URL={API_URL}/> : null}
+        <PhotoGallery columns={data} API_URL={API_URL}/>
       </div>
     </>
   )
