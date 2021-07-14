@@ -38,12 +38,10 @@ export async function getStaticPaths() {
 
 const Album = ({ data, API_URL }) => {
   const formatData = (imageData : [{}]) =>{
-    console.log(imageData)
     // i want an array with 4 sub arrays of similar length
     const amountPerColumn = Math.floor(imageData.length / 4)
     let formatted = []
-    while(imageData.length > 0) {
-      console.log('1')
+    while(imageData.length) {
       let chunk = imageData.splice(0, amountPerColumn)
       formatted.push(chunk)
     }
@@ -51,6 +49,9 @@ const Album = ({ data, API_URL }) => {
     return formatted
   }
 
+  // I originally formatted the data before it was passed as props
+  // but this caused the function to loop infinitely.
+  // putting it useffect ensures it is only ran once
   const [galleryData, setgalleryData] = useState([])
   useEffect(()=>{
     setgalleryData(formatData(data))
