@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import HomeIcon from '@material-ui/icons/Home'
 import url from '../../config/url'
@@ -6,22 +7,9 @@ import styles from '../../styles/Home.module.css'
 import PhotoGallery from '../../components/PhotoGallery'
 
 export const getStaticProps = async ({ params }) => {
-  const formatData = (imageData : [{}]) =>{
-    // i want an array with 4 sub arrays of similar length
-    const amountPerColumn = Math.floor(imageData.length / 4)
-    let formatted = []
-    while(imageData.length > 0) {
-      let chunk = imageData.splice(0, amountPerColumn)
-      formatted.push(chunk)
-    }
-
-    return formatted
-  }
-
   const API_URL = url()
   const res = await fetch(API_URL + `api/albums/${params.albumId}`)
   let data = await res.json()
-  data = formatData(data)
   // TODO: Add a join on the backend so it will pull the album info as well as all the image paths for that
   return {
     props: {
@@ -49,13 +37,31 @@ export async function getStaticPaths() {
 
 
 const Album = ({ data, API_URL }) => {
+  const formatData = (imageData : [{}]) =>{
+    console.log(imageData)
+    // i want an array with 4 sub arrays of similar length
+    const amountPerColumn = Math.floor(imageData.length / 4)
+    let formatted = []
+    while(imageData.length > 0) {
+      console.log('1')
+      let chunk = imageData.splice(0, amountPerColumn)
+      formatted.push(chunk)
+    }
+
+    return formatted
+  }
+
+  const [galleryData, setgalleryData] = useState([])
+  useEffect(()=>{
+    setgalleryData(formatData(data))
+  }, [])
   return(
     <>
       <Link href='/'>
         <a> <HomeIcon /> </a>
       </Link>
       <div className={styles.container}>
-        <PhotoGallery columns={data} API_URL={API_URL}/>
+        <PhotoGallery columns={galleryData} API_URL={API_URL}/>
       </div>
     </>
   )
