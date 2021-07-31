@@ -6,7 +6,7 @@ export default function PhotoGallery({ columns, API_URL }){
       {columns.map(column => {
         return(
           <div className={styles.column}>
-            {column.map((img, i) => <img key={i} className={styles.column_img} src={API_URL + 'photos' + img.img_url}/>)}
+            {column.map((img, i) => <img key={i} className={styles.column_img} src={API_URL + 'photos' + img.imgurl}/>)}
           </div>
         )
       })}

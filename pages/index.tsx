@@ -1,5 +1,4 @@
 import useSWR from 'swr'
-
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 import styles from '../styles/Home.module.css'
@@ -24,7 +23,7 @@ export default function Home({ API_URL }) {
         {
           !data ? <CircularProgress /> :
           <div className={styles.grid}>
-            {data.map((album,i) => <AlbumCard albumName={album.album_name} id={album.id} key={i}/>)}
+            {data.map((album,i) => <AlbumCard albumName={album.displayname} id={album.id} key={i}/>)}
           </div>
         }
       </main>
