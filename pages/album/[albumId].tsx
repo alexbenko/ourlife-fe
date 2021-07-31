@@ -8,7 +8,7 @@ import PhotoGallery from '../../components/PhotoGallery'
 
 export const getStaticProps = async ({ params }) => {
   const API_URL = url()
-  const res = await fetch(API_URL + `api/albums/${params.albumId}`)
+  const res = await fetch(API_URL + `/api/albums/${params.albumId}`)
   let data = await res.json()
   // TODO: Add a join on the backend so it will pull the album info as well as all the image paths for that
   return {
@@ -21,7 +21,7 @@ export const getStaticProps = async ({ params }) => {
 
 export async function getStaticPaths() {
   const API_URL = url()
-  const res = await fetch(API_URL + 'api/albums/all')
+  const res = await fetch(API_URL + '/api/albums/all')
   const albums = await res.json()
 
   // Get the paths we want to pre-render based on posts
