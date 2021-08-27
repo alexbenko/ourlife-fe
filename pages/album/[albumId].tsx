@@ -62,15 +62,10 @@ const Album = ({ data, API_URL }) => {
   }
 
   return(
-    <div>
-      <Link href='/'>
-        <a> <HomeIcon /> </a>
-      </Link>
-      <div className={styles.container}>
-        <main className={styles.main}>
-          <PhotoGallery columns={data} API_URL={API_URL}/>
-        </main>
-      </div>
+    <div className={styles.container}>
+      <main className={styles.main}>
+        <PhotoGallery columns={data} API_URL={API_URL}/>
+      </main>
     </div>
   )
 }
