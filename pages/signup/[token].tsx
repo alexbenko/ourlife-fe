@@ -1,3 +1,5 @@
+import { useState, useEffect } from 'react'
+import styles from '../../styles/Home.module.css'
 import url from '../../config/url'
 import ErrorComponent from '../../components/ErrorComponent'
 
@@ -12,21 +14,19 @@ export async function getServerSideProps({ params }) {
 
   const data = await res.json()
   if (!data.success) {
-    console.log(data.error)
     return {
-      props: { error: true, errorMsg: data.error}
+      props: { error: true, errorMsg: data?.error || 'Unknown'}
     }
   }
 }
 
 const Signup = ( props ) => {
-  console.log(props.error)
   if(props.error) {
     return <ErrorComponent errorMsg={props.errorMsg} redirect={true}/>
   } else {
     return(
-      <div>
-        Signup
+      <div className={styles.container}>
+
       </div>
     )
   }
