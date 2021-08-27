@@ -13,14 +13,13 @@ export default function Home({ API_URL }) {
   return (
     <div className={styles.container}>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to My Life
-        </h1>
 
+        <h2 className={styles.title}>
+          Ourlife
+        </h2>
+        (Site Under Development)
         <p className={styles.description}>
-          Fry, we have a crate to deliver. The alien mothership is in orbit here. If we can hit that bullseye, the rest of the dominoes will fall like a house of cards. Checkmate. Oh, how I wish I could believe or understand that! There's only one reasonable course of action now: kill Flexo!
-          (This is where i will put a little description describing the site.)
+          My partner and I love going on road trips with our minature Australian Shepherd, Kaia. We have been together for almost 3 years (this October !). As a result we have literally thousands of pictures from our many adventures making it difficult to show our friends and family what we have been up to. So I, Alexander Benko, made this website to show off the pictures we have taken and demonstrate my abilities as a Full Stack Softare Developer.
         </p>
 
         {
@@ -29,7 +28,7 @@ export default function Home({ API_URL }) {
             {data.map((album,i) => <AlbumCard albumName={album.displayname} id={album.id} key={i}/>)}
           </div>
         }
-      </main>
+
 
     </div>
   )
