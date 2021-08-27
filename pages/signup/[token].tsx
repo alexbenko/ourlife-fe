@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react'
+import TextField from '@material-ui/core/TextField';
+
 import styles from '../../styles/Home.module.css'
 import url from '../../config/url'
 import ErrorComponent from '../../components/ErrorComponent'
@@ -18,6 +20,9 @@ export async function getServerSideProps({ params }) {
       props: { error: true, errorMsg: data?.error || 'Unknown'}
     }
   }
+  return {
+    props: { success: true}
+  }
 }
 
 const Signup = ( props ) => {
@@ -26,7 +31,13 @@ const Signup = ( props ) => {
   } else {
     return(
       <div className={styles.container}>
-
+        <TextField
+          error
+          id="standard-error-helper-text"
+          label="Error"
+          defaultValue="Hello World"
+          helperText="Incorrect entry."
+        />
       </div>
     )
   }
