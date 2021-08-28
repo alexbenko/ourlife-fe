@@ -15,13 +15,18 @@ export async function getServerSideProps({ params }) {
   })
 
   const data = await res.json()
-  if (!data.success) {
+  if(!data) {
+    return {
+      notFound : true
+    }
+  } else if (!data.success) {
     return {
       props: { error: true, errorMsg: data?.error || 'Unknown'}
     }
-  }
-  return {
-    props: { success: true}
+  } else {
+    return {
+      props: { success: true}
+    }
   }
 }
 
