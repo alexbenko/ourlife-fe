@@ -14,11 +14,11 @@ const PasswordCreation = ({ value, setValue }) => {
   })
 
   const validateInput = {
-    length: () => value.length >= 8,
-    oneUppercase: () => /^[A-Z]$/.test(value),
-    oneLowercase: () => /[a-z]/.test(value),
-    oneDigit: () => /\d/.test(value),
-    oneSymbol: () => /-+_!@#$%^&*.,?/.test(value)
+    length: (input) => input.length >= 8,
+    oneUppercase: (input) => /[A-Z]/.test(input),
+    oneLowercase: (input) => /[a-z]/.test(input),
+    oneDigit: (input) => /\d/.test(input),
+    oneSymbol: (input) => /[-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]/.test(input)
   }
 
   const helperText = {
@@ -31,12 +31,11 @@ const PasswordCreation = ({ value, setValue }) => {
 
   const changeHandler = (event) =>{
     event.preventDefault()
-    setValue(event.target.value)
-
+    // setValue(event.target.value)
     let copyValidation = { ...validation }
     for(const key in validateInput) {
-      console.log(key, validateInput[key]())
-      copyValidation[key] = validateInput[key]()
+      console.log(key, validateInput[key](value))
+      copyValidation[key] = validateInput[key](value)
       setValidation(copyValidation)
     }
     setValidation(copyValidation)
@@ -51,12 +50,12 @@ const PasswordCreation = ({ value, setValue }) => {
           setValue(event.target.value)
           changeHandler(event)
         }}
-        helperText='Password'
+        label='Password'
       />
       <div>
-        {Object.keys(validation).map((key) =>{
+        {Object.keys(validation).map((key, i) =>{
           return(
-          <p> {validation[key] ? <CheckIcon /> : <CloseIcon />} {helperText[key]} </p>
+          <p key={i}> {validation[key] ? <CheckIcon /> : <CloseIcon />} {helperText[key]} </p>
           )
         })}
       </div>
