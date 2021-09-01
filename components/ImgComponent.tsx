@@ -4,7 +4,6 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 export default function ImgComponent({ srcUrl, className, keyNum}){
   const [ loaded, setLoaded ] = useState(false)
   const render = () => {
-    console.log('Loaded: ', keyNum)
     setLoaded(true)
   }
     return(
