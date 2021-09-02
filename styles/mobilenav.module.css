@@ -1,36 +1,57 @@
+.mobileNav_container{
+  height: 70px;
+  width: 100%;
+  position: fixed;
+  background-color: #fff;
+}
+
+.headingbar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .heading{
+  margin: 0;
+  line-height: 1.15;
+  font-size: 2rem;
   text-align: center;
 }
 
 .overlay{
   height: 100%;
   width: 0;
+  max-width: 300px;
   position: fixed;
   z-index: 1;
   top: 0;
   left: 0;
   overflow-x: hidden;
-  transition: .4s;
+  transition: .3s ease;
   box-shadow: 0 0 50px rgb(70 70 70 / 15%);
-  background-color: #1b2832;
+  background-color: #fff
 }
 
 .menu_closed{
-  display: inline-block;
   cursor: pointer;
   z-index: 9;
+  left: 0;
+  color: #0000;
+  padding: 5px;
   position: fixed;
 }
 
 .menu_open{
   z-index: 9;
-  position: fixed
+  position: fixed;
+  left: 0;
+  color: #0000;
 }
 
 .bar1, .bar2, .bar3 {
   width: 35px;
   height: 5px;
-  background-color: #FFF;
+  background-color: black;
   margin: 6px 0;
   transition: 0.4s;
 }
@@ -46,4 +67,10 @@
 
 .menu_open .bar3{
   transform: rotate(45deg) translate(-8px, -8px) ;
+}
+
+.links_container{
+  display: flex;
+  flex-direction: column;
+  text-align: center
 }
