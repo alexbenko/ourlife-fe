@@ -13,19 +13,12 @@ export default function Home({ API_URL }) {
   return (
     <div className={styles.container}>
 
-
-        <h2 className={styles.title}>
-          Ourlife
-        </h2>
         (Site Under Development)
-        <p className={styles.description}>
-
-        </p>
 
         {
           !data ? <CircularProgress /> :
           <div className={styles.grid}>
-            {data.map((album,i) => <AlbumCard albumName={album.displayname} id={album.id} key={i}/>)}
+            {data.map((album,i) => <AlbumCard API_URL={API_URL} albumName={album.displayname} id={album.id} thumbnail={album.thumbnail} key={i}/>)}
           </div>
         }
 
