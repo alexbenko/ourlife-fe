@@ -18,7 +18,7 @@ export default function Home({ API_URL }) {
         {
           !data ? <CircularProgress /> :
           <div className={styles.grid}>
-            {data.map((album,i) => <AlbumCard API_URL={API_URL} albumName={album.displayname} id={album.id} thumbnail={album.thumbnail} key={i}/>)}
+            {data.map((album,i) => <AlbumCard albumName={album.displayname} id={album.id} key={i}/>)}
           </div>
         }
 
