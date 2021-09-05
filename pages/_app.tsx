@@ -1,6 +1,7 @@
 // 3rd party
 import { useState, useEffect } from 'react'
 import Head from 'next/head'
+import { useRouter } from 'next/router'
 //icons
 import HomeIcon from '@material-ui/icons/Home'
 import ExploreIcon from '@material-ui/icons/Explore'
@@ -52,10 +53,10 @@ function MyApp({ Component, pageProps }) {
   })
 
   const navLinks = [
-    {text: 'Home', url: '/', icon: <HomeIcon htmlColor='#5f6368'/>},
-    {text: 'Adventures', url: '/adventures', icon: <ExploreIcon htmlColor='#5f6368'/>},
-    {text: 'About', url: '/about', icon: <PersonIcon htmlColor='#5f6368'/>},
-    {text: 'Contact', url: '/contact', icon: <MailIcon htmlColor='#5f6368'/>}
+    {text: 'Home', url: '/', icon: <HomeIcon />},
+    {text: 'Adventures', url: '/adventures', icon: <ExploreIcon />},
+    {text: 'About', url: '/about', icon: <PersonIcon />},
+    {text: 'Contact', url: '/contact', icon: <MailIcon />}
   ]
   console.log('Mobile Device: ', isMobile)
   return (
