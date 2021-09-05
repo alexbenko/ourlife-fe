@@ -73,7 +73,7 @@ function MyApp({ Component, pageProps }) {
       <div style={{marginTop: screenSize.width <= 480 ? '70px' : '0px'}}>
         <Component {...pageProps} API_URL={url()} isMobile={isMobile}/>
       </div>
-      <Footer />
+      <Footer links={navLinks}/>
     </>
   )
 }
