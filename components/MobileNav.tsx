@@ -27,9 +27,11 @@ export default function MobileNav({navLinks}) {
         <div className={styles.links_container}>
           { navLinks.map((link, i) => {
             return(
-              <Link key={i} href={link.url}>
-                <a onClick={()=> setMenuClicked(false)}> {link.text} </a>
-              </Link>
+              <div>
+                <Link key={i} href={link.url}>
+                  <a onClick={()=> setMenuClicked(false)}> {link.icon} {link.text} </a>
+                </Link>
+              </div>
             )
           })}
         </div>
