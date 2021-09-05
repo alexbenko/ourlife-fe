@@ -12,6 +12,7 @@ export default function MobileNav({navLinks}) {
   const HeadingText = ({text}) =>{
     return <p className={styles.heading}>{text}</p>
   }
+
   return(
     <div className={styles.mobileNav_container}>
       <div className={styles.headingbar}>
@@ -22,13 +23,12 @@ export default function MobileNav({navLinks}) {
         </div>
         <HeadingText text='The Wanderers'/>
       </div>
-      <div className={styles.overlay} style={{width: menuClicked ? '90%' : '0%'}}>
-        <HeadingText text='The Wanderers'/>
+      <div className={styles.overlay} style={{width: menuClicked ? '100%' : '0%'}}>
         <div className={styles.links_container}>
           { navLinks.map((link, i) => {
             return(
               <Link key={i} href={link.url}>
-                <a> {link.text} </a>
+                <a onClick={()=> setMenuClicked(false)}> {link.text} </a>
               </Link>
             )
           })}
