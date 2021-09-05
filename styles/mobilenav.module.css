@@ -75,18 +75,29 @@
 }
 
 .links_container{
+  padding-top: 20px;
   display: flex;
   flex-direction: column;
   text-align: center;
-  max-width: 50%;
+  gap: 20px;
+  max-width: 60%;
   margin: 0 auto;
 }
 
-.links_container a {
-  width: 100%;
+.links_container svg {
   float: left;
+}
+
+.links_container div {
+  flex: 1;
+  width: 100%;
   border-bottom: 1px solid #e8e8e8;
   font-size: 20px;
   letter-spacing: 1px;
-  text-align: left;
+  text-align: center;
+  color: #5f6368;
+}
+
+.links_container div{
+  float: left;
 }
