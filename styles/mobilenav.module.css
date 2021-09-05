@@ -1,8 +1,11 @@
 .mobileNav_container{
   height: 70px;
   width: 100%;
+  top: 0px;
   position: fixed;
+  box-shadow: 0 0 28px rgb(0 0 0 / 7%);
   background-color: #fff;
+  padding: 20px
 }
 
 .headingbar{
@@ -21,9 +24,8 @@
 .overlay{
   height: 100%;
   width: 0;
-  max-width: 300px;
+  max-width: 375px;
   position: fixed;
-  z-index: 1;
   top: 0;
   left: 0;
   overflow-x: hidden;
@@ -34,24 +36,24 @@
 
 .menu_closed{
   cursor: pointer;
-  z-index: 9;
   left: 0;
   color: #0000;
   padding: 5px;
   position: fixed;
+  z-index: 10;
 }
 
 .menu_open{
-  z-index: 9;
   position: fixed;
   left: 0;
   color: #0000;
+  z-index: 10;
 }
 
 .bar1, .bar2, .bar3 {
   width: 35px;
   height: 5px;
-  background-color: black;
+  background-color: #5f6368;
   margin: 6px 0;
   transition: 0.4s;
 }
