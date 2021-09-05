@@ -1,12 +1,17 @@
+// 3rd party
 import { useState, useEffect } from 'react'
 import Head from 'next/head'
-import Link from 'next/link'
+//icons
 import HomeIcon from '@material-ui/icons/Home'
-
+import ExploreIcon from '@material-ui/icons/Explore'
+import PersonIcon from '@material-ui/icons/Person'
+import MailIcon from '@material-ui/icons/Mail';
+//1st party
 import '../styles/globals.css'
 import url from '../config/url'
 import Footer from '../components/Footer'
 import MobileNav from '../components/MobileNav'
+
 
 // if you are unfamiliar with Nextjs, _app is a wrapper around every page
 function MyApp({ Component, pageProps }) {
@@ -47,10 +52,10 @@ function MyApp({ Component, pageProps }) {
   })
 
   const navLinks = [
-    {text: 'Home', url: '/'},
-    {text: 'Adventures', url: '/adventures'},
-    {text: 'About', url: '/about'},
-    {text: 'Contact', url: '/contact'}
+    {text: 'Home', url: '/', icon: <HomeIcon htmlColor='#5f6368'/>},
+    {text: 'Adventures', url: '/adventures', icon: <ExploreIcon htmlColor='#5f6368'/>},
+    {text: 'About', url: '/about', icon: <PersonIcon htmlColor='#5f6368'/>},
+    {text: 'Contact', url: '/contact', icon: <MailIcon htmlColor='#5f6368'/>}
   ]
   console.log('Mobile Device: ', isMobile)
   return (
