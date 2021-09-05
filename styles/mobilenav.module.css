@@ -12,6 +12,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-bottom: 15px;
 }
 
 .heading{
@@ -19,32 +20,34 @@
   line-height: 1.15;
   font-size: 2rem;
   text-align: center;
+  z-index: 10;
 }
 
 .overlay{
   height: 100%;
   width: 0;
-  max-width: 375px;
   position: fixed;
   top: 0;
   left: 0;
   overflow-x: hidden;
   transition: .3s ease;
   box-shadow: 0 0 50px rgb(70 70 70 / 15%);
-  background-color: #fff
+  background-color: #fff;
+  margin-top: 70px;
 }
 
 .menu_closed{
+  position: fixed;
   cursor: pointer;
   left: 0;
   color: #0000;
   padding: 5px;
-  position: fixed;
   z-index: 10;
 }
 
 .menu_open{
   position: fixed;
+  cursor: pointer;
   left: 0;
   color: #0000;
   z-index: 10;
@@ -74,5 +77,16 @@
 .links_container{
   display: flex;
   flex-direction: column;
-  text-align: center
+  text-align: center;
+  max-width: 50%;
+  margin: 0 auto;
+}
+
+.links_container a {
+  width: 100%;
+  float: left;
+  border-bottom: 1px solid #e8e8e8;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-align: left;
 }
