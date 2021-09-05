@@ -12,14 +12,15 @@ import MobileNav from '../components/MobileNav'
 function MyApp({ Component, pageProps }) {
   const [ isMobile, setIsMobile ] = useState(false)
   const [ screenSize, setScreenSize ] = useState({
-    width: null,
-    height: null
+    width: 0,
+    height: 0
   })
 
   // detects resize to rerender navmenu in case the user changes window size
   useEffect(()=>{
     function handleResize(){
       console.log('resize')
+      console.log(window.innerWidth)
       setScreenSize({
         height: window.innerHeight,
         width: window.innerWidth
@@ -63,7 +64,9 @@ function MyApp({ Component, pageProps }) {
         <div style={{position: 'fixed'}}>
         </div>
       }
-      <Component {...pageProps} API_URL={url()} isMobile={isMobile}/>
+      <div style={{marginTop: screenSize.width <= 480 ? '70px' : '0px'}}>
+        <Component {...pageProps} API_URL={url()} isMobile={isMobile}/>
+      </div>
       <Footer />
     </>
   )
