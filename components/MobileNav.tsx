@@ -1,8 +1,11 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
+import { useRouter } from 'next/router'
 import Link from 'next/link'
 import styles from '../styles/mobilenav.module.css'
 
 export default function MobileNav({navLinks}) {
+  const router = useRouter()
+  console.log(router)
   const [ menuClicked, setMenuClicked ] = useState(false)
   const handleMenuClick = (e) => {
     //e.preventDefault()
@@ -27,8 +30,11 @@ export default function MobileNav({navLinks}) {
         <div className={styles.links_container}>
           { navLinks.map((link, i) => {
             return(
-              <div>
-                <Link key={i} href={link.url}>
+              <div
+              key={i}
+              style={{borderColor: router.asPath === link.url ? '#00e887' : null}}
+              >
+                <Link href={link.url}>
                   <a onClick={()=> setMenuClicked(false)}> {link.icon} {link.text} </a>
                 </Link>
               </div>
