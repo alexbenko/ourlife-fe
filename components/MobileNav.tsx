@@ -5,15 +5,11 @@ import styles from '../styles/mobilenav.module.css'
 
 export default function MobileNav({navLinks}) {
   const router = useRouter()
-  console.log(router)
+
   const [ menuClicked, setMenuClicked ] = useState(false)
   const handleMenuClick = (e) => {
     //e.preventDefault()
     setMenuClicked(!menuClicked)
-  }
-
-  const HeadingText = ({text}) =>{
-    return <p className={styles.heading}>{text}</p>
   }
 
   return(
@@ -24,7 +20,7 @@ export default function MobileNav({navLinks}) {
           <div className={styles.bar2}></div>
           <div className={styles.bar3}></div>
         </div>
-        <HeadingText text='The Wanderers'/>
+        <p className={styles.heading}>The Wanderers</p>
       </div>
       <div className={styles.overlay} style={{width: menuClicked ? '100%' : '0%'}}>
         <div className={styles.links_container}>
