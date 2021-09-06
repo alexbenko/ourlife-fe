@@ -42,7 +42,6 @@ export async function getStaticPaths() {
 
 
 const Album = ({ data, API_URL }) => {
-  console.log(data)
   const router = useRouter()
 
   if(router.isFallback) {
