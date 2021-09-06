@@ -12,7 +12,7 @@ import '../styles/globals.css'
 import url from '../config/url'
 import Footer from '../components/Footer'
 import MobileNav from '../components/MobileNav'
-
+import NavBar from '../components/NavBar'
 
 // if you are unfamiliar with Nextjs, _app is a wrapper around every page
 function MyApp({ Component, pageProps }) {
@@ -66,14 +66,11 @@ function MyApp({ Component, pageProps }) {
         <link rel="icon" href="/favicon.svg" />
         <title>The Wanderers</title>
       </Head>
-      { isMobile ? <MobileNav navLinks={navLinks}/> :
-        <div style={{position: 'fixed'}}>
-        </div>
-      }
-      <div style={{marginTop: screenSize.width <= 480 ? '70px' : '0px'}}>
+
+      {isMobile ? <MobileNav navLinks={navLinks}/> : <NavBar navLinks={navLinks}/>}
         <Component {...pageProps} API_URL={url()} isMobile={isMobile}/>
-      </div>
-      <Footer links={navLinks}/>
+
+        <Footer links={navLinks}/>
     </>
   )
 }
