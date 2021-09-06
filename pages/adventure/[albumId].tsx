@@ -42,16 +42,9 @@ export async function getStaticPaths() {
 
 
 const Album = ({ data, API_URL }) => {
+  console.log(data)
   const router = useRouter()
-  // I originally formatted the data before it was passed as props
-  // but this caused the function to loop infinitely.
-  // putting it useffect ensures it is only ran once
-  /*
-  const [galleryData, setgalleryData] = useState([])
-  useEffect(()=>{
-    setgalleryData(formatData(data))
-  }, [])
-  */
+
   if(router.isFallback) {
     return (
       <div>
@@ -64,7 +57,8 @@ const Album = ({ data, API_URL }) => {
   return(
     <div className={styles.container}>
       <main className={styles.main}>
-        <PhotoGallery columns={data} API_URL={API_URL}/>
+        <p className={styles.title}>{data.displayName}</p>
+        <PhotoGallery columns={data.album} API_URL={API_URL}/>
       </main>
     </div>
   )
