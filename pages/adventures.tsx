@@ -12,7 +12,7 @@ export default function Adventures({ API_URL }) {
     alert(error)
   }
   return(
-    <div>
+    <div className={styles.container}>
       <h2>Our Adventures</h2>
       {
         !data ? <CircularProgress /> :
