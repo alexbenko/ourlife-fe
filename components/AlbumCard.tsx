@@ -4,7 +4,7 @@ import { useState } from 'react'
 export default function AlbumCard({ albumName, id }) {
   if (albumName) {
     return (
-      <Link href={`/album/${id}`}>
+      <Link href={`/adventure/${id}`}>
         <a>
           <div className={styles.card} /*style={{backgroundImage:`url(${API_URL}/photos/${thumbnail})`}}*/>
             <h3> {albumName} &rarr;</h3>
