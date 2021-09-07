@@ -36,8 +36,8 @@
 .title{
   margin: 0;
   line-height: 1.15;
-  font-size: 2rem;
+  font-size: calc(12px + 1vw);
   text-align: center;
   z-index: 10;
-  margin-right:  1rem;
+  margin-right: 1rem;
 }

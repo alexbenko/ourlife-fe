@@ -20,7 +20,7 @@
 .heading{
   margin: 0;
   line-height: 1.15;
-  font-size: 2rem;
+  font-size: calc(20px + 1vw);
   text-align: center;
   z-index: 10;
 }
@@ -97,7 +97,7 @@
   flex: 1;
   width: 100%;
   border-bottom: 3px solid #F7F8F8;
-  font-size: 20px;
+  font-size: calc(12px + 1vw);
   letter-spacing: 1px;
   text-align: center;
   color: #F7F8F8;
