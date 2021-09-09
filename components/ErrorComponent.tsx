@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 
 import styles from '../styles/Home.module.css'
 
-export default function ErrorComponent ({ errorMsg, redirect }) {
+export default function ErrorComponent ({ errorMsg, redirect, helpMsg }) {
   const [ seconds, setSeconds ] = useState(5)
   const router = useRouter()
 
@@ -27,7 +27,7 @@ export default function ErrorComponent ({ errorMsg, redirect }) {
       <p className={styles.description}>
         Reason: {errorMsg}
       </p>
-      <p className={styles.description}> Please contact the admin for help.</p>
+      { helpMsg && <p className={styles.description}> Please contact the admin for help.</p>}
       { redirect &&
         <p>
           Redirecting in {seconds}
