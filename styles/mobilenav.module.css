@@ -8,6 +8,7 @@
   background-color: #212a2e;
   color: #F7F8F8;
   border-bottom: 3px solid #00e887;
+  z-index: 1;
 }
 
 .headingbar{
