@@ -28,17 +28,26 @@ export default function Home(props) {
   return (
     <div className={styles.container}>
       <main className={styles.main}>
-          <h2 style={{textAlign: 'center'}}> Adventures </h2>
+          <h2 style={{textAlign: 'center'}}> Quick Album </h2>
           <div className={styles.grid}>
-            {props.data.map((adv, i) => {
-              return(
-                <Link href={`/adventure/${adv.id}`}>
-                  <a>
-                    <ImgWithText src={`${props.API_URL}/photos${adv.thumbnail}`} text={adv.displayname}/>
-                  </a>
-                </Link>
-              )
-            })}
+            {props.isMobile ?
+              <Link href={`/adventure/${props.data[0].id}`}>
+                <a>
+                  <ImgWithText src={`${props.API_URL}/photos${props.data[0].thumbnail}`} text={props.data[0].displayname}/>
+                </a>
+              </Link> :
+
+                props.data.map((adv, i) => {
+                  return(
+                    <Link href={`/adventure/${adv.id}`}>
+                      <a>
+                        <ImgWithText src={`${props.API_URL}/photos${adv.thumbnail}`} text={adv.displayname}/>
+                      </a>
+                    </Link>
+                  )
+                })
+              }
+
           </div>
       </main>
     </div>
