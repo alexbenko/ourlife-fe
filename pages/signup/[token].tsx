@@ -72,7 +72,7 @@ const Signup = ( props ) => {
   }
 
   if(props.error) {
-    return <ErrorComponent errorMsg={props.errorMsg} redirect={true}/>
+    return <ErrorComponent errorMsg={props.errorMsg} redirect={true} helpMsg={false}/>
   } else {
     return(
       <div className={styles.container}>
