@@ -7,7 +7,7 @@ export default function Footer({ links }){
     <footer className={styles.footer}>
       {links.map((link, i) => {
         return (
-          <Link href={link.url}>
+          <Link href={link.url} key={i}>
             <a> {link.icon} {link.text} </a>
           </Link>
         )
