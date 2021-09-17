@@ -20,7 +20,7 @@ export default function MobileNav({navLinks}) {
           <div className={styles.bar2}></div>
           <div className={styles.bar3}></div>
         </div>
-        <h2 className={styles.heading}>The Wanderers</h2>
+        <h2 className={styles.heading}>Ourlife</h2>
       </div>
       <div className={styles.overlay} style={{width: menuClicked ? '100%' : '0%'}}>
         <div className={styles.links_container}>

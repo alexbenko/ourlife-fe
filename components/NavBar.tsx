@@ -10,7 +10,7 @@ export default function NavBar({ navLinks }) {
     <div className={styles.nav_container}>
       <Link href="/">
         <a>
-          <p className={styles.title}> The Wanderers {router.query?.albumId && 'In'} </p>
+          <p className={styles.title}> Ourlife {router.query?.albumId && 'In'} </p>
         </a>
       </Link>
         {navLinks.map((link, i) => {
