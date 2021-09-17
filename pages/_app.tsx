@@ -1,7 +1,7 @@
 // 3rd party
 import { useState, useEffect } from 'react'
 import Head from 'next/head'
-import { useRouter } from 'next/router'
+
 //icons
 import HomeIcon from '@material-ui/icons/Home'
 import ExploreIcon from '@material-ui/icons/Explore'
@@ -74,7 +74,7 @@ function MyApp({ Component, pageProps }) {
       <Head>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <link rel="icon" href="/favicon.svg" />
-        <title>The Wanderers</title>
+        <title>Our Life</title>
       </Head>
 
       {isMobile ? <MobileNav navLinks={navLinks}/> : <NavBar navLinks={navLinks}/>}
