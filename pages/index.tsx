@@ -25,11 +25,13 @@ export default function Home(props) {
     return <ErrorComponent errorMsg={props.msg } redirect={false} helpMsg={false}/>
   }
 
+
   return (
     <div className={styles.container}>
       <main className={styles.main}>
+        (Site still under development)
           <h2 style={{textAlign: 'center'}}> Quick Album </h2>
-          <div className={styles.grid}>
+          <div >
             {props.isMobile ?
               <Link href={`/adventure/${props.data[0].id}`}>
                 <a>
@@ -47,8 +49,11 @@ export default function Home(props) {
                   )
                 })
               }
-
           </div>
+
+          <p className={styles.textContainer}>
+            Welcome to our life. My partner and I met {new Date().getFullYear() - 2018} years ago. We instantly bonded over our love for often spontaneous adventures. This site is a way for us to show our trips in an organized manner. So click above to quickly see an adventure or click the adventures link to see them all.
+          </p>
       </main>
     </div>
   )
