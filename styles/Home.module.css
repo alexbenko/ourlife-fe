@@ -61,6 +61,23 @@
   text-align: center;
 }
 
+.textContainer{
+  font-size: 22px;
+  line-height: 1.8;
+  text-transform: none;
+  font-family: Lora;
+  font-weight: 400;
+  float: left;
+  width: calc(100% - 360px);
+  margin-bottom: 80px;
+  text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+  .textContainer {
+    width: calc(100% - 100px);
+  }
+}
 .description {
   line-height: 1.5;
   font-size: 1.5rem;
@@ -123,6 +140,12 @@
     width: 100%;
     flex-direction: column;
   }
+}
+
+.scrollbar{
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
 }
 
 
