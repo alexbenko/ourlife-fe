@@ -27,8 +27,8 @@ export default function MobileNav({navLinks}) {
           { navLinks.map((link, i) => {
             return(
               <div
-              key={i}
-              style={{borderColor: router.asPath === link.url ? '#00e887' : null}}
+                key={i}
+                style={{borderColor: router.asPath === link.url ? '#00e887' : null}}
               >
                 <Link href={link.url}>
                   <a onClick={()=> setMenuClicked(false)}> {link.icon} {link.text} </a>
