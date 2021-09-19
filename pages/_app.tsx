@@ -66,7 +66,6 @@ function MyApp({ Component, pageProps }) {
     {text: 'Home', url: '/', icon: <HomeIcon />},
     {text: 'Adventures', url: '/adventures', icon: <ExploreIcon />},
     {text: 'About', url: '/about', icon: <PersonIcon />},
-    {text: 'Contact', url: '/contact', icon: <MailIcon />}
   ]
   console.log('Mobile Device: ', isMobile)
   return (
@@ -77,7 +76,10 @@ function MyApp({ Component, pageProps }) {
         <title>Our Life</title>
       </Head>
 
-      {isMobile ? <MobileNav navLinks={navLinks}/> : <NavBar navLinks={navLinks}/>}
+      { isMobile ?
+        <MobileNav navLinks={navLinks}/> :
+        <NavBar navLinks={navLinks}/>
+      }
         <Component {...pageProps} API_URL={url()} isMobile={isMobile}/>
 
         <Footer links={navLinks}/>
