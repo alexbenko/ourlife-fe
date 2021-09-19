@@ -13,13 +13,15 @@ export default function Adventures({ API_URL }) {
   }
   return(
     <div className={styles.container}>
-      <h2>Our Adventures</h2>
-      {
-        !data ? <CircularProgress /> :
-        <div className={styles.grid}>
-          {data.map((album,i) => <AlbumCard albumName={album.displayname} id={album.id} key={i}/>)}
-        </div>
-      }
+      <main className={styles.main}>
+        <h2>Our Adventures</h2>
+        {
+          !data ? <CircularProgress /> :
+          <div className={styles.grid}>
+            {data.map((album,i) => <AlbumCard albumName={album.displayname} id={album.id} key={i}/>)}
+          </div>
+        }
+      </main>
     </div>
   )
 }
