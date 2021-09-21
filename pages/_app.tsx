@@ -10,7 +10,6 @@ import MailIcon from '@material-ui/icons/Mail';
 //1st party
 import '../styles/globals.css'
 import url from '../config/url'
-import Footer from '../components/Footer'
 import MobileNav from '../components/MobileNav'
 import NavBar from '../components/NavBar'
 
