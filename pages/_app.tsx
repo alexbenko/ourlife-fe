@@ -82,7 +82,6 @@ function MyApp({ Component, pageProps }) {
       }
         <Component {...pageProps} API_URL={url()} isMobile={isMobile}/>
 
-        <Footer links={navLinks}/>
     </>
   )
 }
