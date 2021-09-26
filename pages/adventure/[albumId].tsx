@@ -21,7 +21,8 @@ export async function getStaticProps ({ params }){
 
   return {
     props: {
-      data
+      data: data.data,
+      albumId: params.albumId
     },
     revalidate: 30
   }
@@ -41,7 +42,7 @@ export async function getStaticPaths() {
 }
 
 
-const Album = ({ data, API_URL }) => {
+const Album = ({ data, API_URL, albumId }) => {
   const router = useRouter()
 
   if(router.isFallback) {
@@ -53,10 +54,19 @@ const Album = ({ data, API_URL }) => {
     )
   }
 
+  if(typeof window !== 'undefined') {
+    // i only want this post request to execute if this is running in browser
+    fetch(API_URL + '/api/webhook/visit/' + albumId, {
+      method: 'POST'
+    })
+  }
   return(
     <div className={styles.container}>
       <main className={styles.main}>
-        <p className={styles.title}>{data.displayName}</p>
+        <div>
+          <h1 className={styles.title}>{data.displayName}</h1>
+          <p style={{color: '#8a8f98'}}>Visits: {data.visits}</p>
+        </div>
         <PhotoGallery columns={data.album} API_URL={API_URL}/>
       </main>
     </div>
