@@ -49,6 +49,7 @@ const PasswordCreation = ({ value, setValue }) => {
           changeHandler(event)
         }}
         label='Password'
+        error={validation}
       />
       <div>
         {Object.keys(validation).map((key, i) =>{
