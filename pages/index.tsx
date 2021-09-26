@@ -20,7 +20,7 @@ export async function getServerSideProps(context) {
   }
 }
 
-export default function Home(props) {
+export default function Index(props) {
   if(!props.success) {
     return <ErrorComponent errorMsg={props.msg } redirect={false} helpMsg={false}/>
   }
