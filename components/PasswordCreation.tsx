@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import styles from '../styles/Home.module.css'
-import TextField from '@material-ui/core/TextField'
+import InputField from '../components/InputField'
 import CloseIcon from '@material-ui/icons/Close'
 import CheckIcon from '@material-ui/icons/Check'
 
@@ -34,20 +34,18 @@ const PasswordCreation = ({ value, setValue }) => {
     // setValue(event.target.value)
     let copyValidation = { ...validation }
     for(const key in validateInput) {
-      console.log(key, validateInput[key](value))
       copyValidation[key] = validateInput[key](value)
-      setValidation(copyValidation)
     }
     setValidation(copyValidation)
-
   }
   return (
     <>
-      <TextField
+      <InputField
         value={value}
         onChange={(event) => {
           console.log('Password change')
           setValue(event.target.value)
+          console.log('set value')
           changeHandler(event)
         }}
         label='Password'
@@ -55,7 +53,7 @@ const PasswordCreation = ({ value, setValue }) => {
       <div>
         {Object.keys(validation).map((key, i) =>{
           return(
-          <p key={i}> {validation[key] ? <CheckIcon /> : <CloseIcon />} {helperText[key]} </p>
+          <p key={i}> {validation[key] ? <CheckIcon style={{ color: 'green' }}/> : <CloseIcon style={{ color: 'red' }}/>} {helperText[key]} </p>
           )
         })}
       </div>
