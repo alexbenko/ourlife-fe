@@ -1,0 +1,8 @@
+.inputsContainer{
+  display: flex;
+  flex-direction: column;
+}
+
+.input{
+  color: #F7F8F8;
+}

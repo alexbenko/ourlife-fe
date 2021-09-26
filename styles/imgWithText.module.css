@@ -18,6 +18,10 @@
   width: 100%;
 }
 
+.textContainer:hover{
+  color: #00e887
+}
+
 .textContainer:before {
   content: '';
   display: inline-block;
@@ -30,15 +34,16 @@
   color: #FFF;
 }
 
+.textContainer h4:hover{
+  color: #00e887
+}
+
 
 .adventureSlide{
   display: flex;
   flex-wrap: wrap;
 }
 
-.adventure{
-  padding: 0 4px;
-}
 
 .adventure img {
   vertical-align: middle;
