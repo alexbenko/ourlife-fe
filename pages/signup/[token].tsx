@@ -2,7 +2,10 @@ import { useState, useEffect } from 'react'
 import TextField from '@material-ui/core/TextField'
 
 import styles from '../../styles/Home.module.css'
+import signupStyles from '../../styles/signup.module.css'
+
 import url from '../../config/url'
+import InputField from '../../components/InputField'
 import PasswordCreation from '../../components/PasswordCreation'
 import ErrorComponent from '../../components/ErrorComponent'
 
@@ -51,7 +54,6 @@ const Signup = ( props ) => {
   // backend validation happens as well. Saves requests and provides instant input feedback
   const validInputs = {
     fname: () => {
-      console.log('fname')
       return fieldValues.fname.length > 0
     },
     lname: () => {
@@ -64,12 +66,16 @@ const Signup = ( props ) => {
   }
 
   const handleChange = (event, fieldId) => {
+    console.log(fieldId, event.target.value)
     event.preventDefault()
-    let newFields = { ...fieldValues };
-    newFields[fieldId] = event.target.value;
-
-    setFieldValues(newFields);
+    let newFields = { ...fieldValues }
+    newFields[fieldId] = event.target.value
+    setFieldValues(newFields)
   }
+
+  useEffect(()=>{
+    console.log('parent values: ', fieldValues)
+  }, [fieldValues])
 
   if(props.error) {
     return <ErrorComponent errorMsg={props.errorMsg} redirect={true} helpMsg={false}/>
@@ -77,19 +83,18 @@ const Signup = ( props ) => {
     return(
       <div className={styles.container}>
         <p> Welcome please fill in all fields to create an account.</p>
-        {Object.keys(fieldValues).map((field) => {
-          return(
-            <TextField
-              onChange={e => handleChange(e, field)}
-              key={field}
-              id={field}
-              label={labels[field]}
-              //helperText="Incorrect entry."
-              error={validInputs[field](fieldValues[field])}
-              value={fieldValues[field]}
-            />
-          )
-        })}
+        {Object.keys(fieldValues).map((field, i) => {
+            return(
+              <InputField
+                onChange={(e)=> handleChange(e, field)}
+                key={i}
+                label={labels[field]}
+                //helperText="Incorrect entry."
+                error={validInputs[field](fieldValues[field])}
+                value={fieldValues[field]}
+              />
+            )
+          })}
         <PasswordCreation value={plainTextPassword} setValue={setPlainTextPassword}/>
       </div>
     )
