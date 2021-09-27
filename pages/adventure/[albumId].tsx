@@ -23,8 +23,7 @@ export async function getStaticProps ({ params }){
     props: {
       data: data.data,
       albumId: params.albumId
-    },
-    revalidate: 30
+    }
   }
 }
 
