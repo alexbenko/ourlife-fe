@@ -8,7 +8,7 @@ import styles from '../../styles/Home.module.css'
 
 import PhotoGallery from '../../components/PhotoGallery'
 
-export async function getStaticProps ({ params }){
+export async function getServerSideProps ({ params }){
   const API_URL = url()
   const res = await fetch(API_URL + `/api/albums/${params.albumId}`)
   const data = await res.json()
@@ -26,20 +26,6 @@ export async function getStaticProps ({ params }){
     }
   }
 }
-
-export async function getStaticPaths() {
-  const API_URL = url()
-  const res = await fetch(API_URL + '/api/albums/all')
-  const albums = await res.json()
-
-  // Get the paths we want to pre-render based on posts
-  const paths = albums.map((album) => ({
-    params: { albumId: album.id.toString() },
-  }))
-
-  return { paths, fallback: true }
-}
-
 
 const Album = ({ data, API_URL, albumId }) => {
   const router = useRouter()
