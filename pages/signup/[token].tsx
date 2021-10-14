@@ -66,10 +66,10 @@ const Signup = ( props ) => {
   }
 
   const handleChange = (event, fieldId) => {
-    console.log(fieldId, event.target.value)
     event.preventDefault()
     let newFields = { ...fieldValues }
-    newFields[fieldId] = event.target.value
+    let newValue = event.target.value
+    newFields[fieldId] = newValue
     setFieldValues(newFields)
   }
 
@@ -86,8 +86,9 @@ const Signup = ( props ) => {
         {Object.keys(fieldValues).map((field, i) => {
             return(
               <InputField
-                onChange={(e)=> handleChange(e, field)}
+                onChange={handleChange}
                 key={i}
+                field={field}
                 label={labels[field]}
                 //helperText="Incorrect entry."
                 error={validInputs[field](fieldValues[field])}
@@ -95,7 +96,7 @@ const Signup = ( props ) => {
               />
             )
           })}
-        <PasswordCreation value={plainTextPassword} setValue={setPlainTextPassword}/>
+        <PasswordCreation value={plainTextPassword} setValue={(newValue)=>setPlainTextPassword(newValue)}/>
       </div>
     )
   }
