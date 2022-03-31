@@ -86,7 +86,7 @@ const Signup = ( props ) => {
         {Object.keys(fieldValues).map((field, i) => {
             return(
               <InputField
-                onChange={handleChange}
+                onChange={(e:any)=> handleChange(e, field)}
                 key={i}
                 field={field}
                 label={labels[field]}
