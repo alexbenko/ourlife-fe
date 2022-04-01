@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start -p 80",
+    "docker:build":"npm run build && docker build -t ourlife_fe .",
+    "docker:deploy":"npm run docker:build && docker tag ourlife_fe alexbenko/ourlife_fe && docker push alexbenko/ourlife_fe"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.4",
