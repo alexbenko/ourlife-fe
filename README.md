@@ -5,7 +5,6 @@
 * [Typescript](https://www.typescriptlang.org/docs/)
 
 ## Live URL
-To see this project live, visit : https://ourlife-fe.vercel.app/
 Please keep in mind this is the earlist working version of my project and there are a lot of changes I am going to implement before I consider this complete.
 
 <!-- ABOUT THE PROJECT -->
